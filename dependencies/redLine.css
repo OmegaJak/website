@@ -1,0 +1,137 @@
+/* ---------- Major Sections ---------- */
+
+body {
+    paddig: 0em;
+    margin: 0em;
+    font: normal normal 1em Helvetica, Arial, sans-serif;
+}
+
+header {
+    padding: 0em 0em 1em 0em; /* padding for the nav */
+    margin: 0em;
+}
+
+section {
+    padding: 0em 1em 0em 1em;
+    margin: 0em;
+}
+
+/* ---------- default ---------- */
+
+h1 {
+    padding: 0em 0em 0em 0.2em;
+    margin: 0em;
+    border-top:  solid 0.1em red;
+    border-bottom: solid 0.1em red;
+    font: normal bold 3em Copperplate, Rockwell, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    padding: 0em 1em 0em 0.2em;
+    margin: 0em;
+    font: normal bold 3em Copperplate, Rockwell, Helvetica, sans-serif;
+}
+
+h3 {
+    padding: 1em 1em 0em 0.2em;
+    margin: 0em;
+    font: normal bold 1.5em Copperplate, Rockwell, Helvetica, sans-serif;
+}
+
+p {
+    paddig: 0em;
+    margin: 0em;
+    text-align: justify;
+}
+
+em {
+    text-decoration: underline;
+    font-style: normal;
+}
+
+ul {
+    paddig: 0em;
+    margin: 0em;
+}
+
+li {
+    paddig: 0em;
+    margin: 0em;
+}
+
+a {
+    paddig: 0em;
+    margin: 0em;
+}
+
+/* ---------- specific ---------- */
+
+header nav {
+    padding: 0em;
+    margin: 0em;
+    border-top: solid 0.1em red;
+    border-bottom: solid 0.1em red;
+}
+
+header nav ul {
+    padding: 0em;
+    margin: 0em;
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+header nav ul li {
+    padding: 0em;
+    margin: 0em;
+    width: 33.33333%;
+    float: left;
+    text-align: center;
+}
+
+header nav ul li a {
+    padding: 0em;
+    margin: 0em;
+    display: block;
+    width: 100%;
+    color: black;
+    font: normal bold 1em Copperplate, Rockwell, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    padding: 0em;
+    margin: 0em;
+    background-color: red;
+}
+
+#selected:hover {
+    background-color: black;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 0em;
+    margin: 0em;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    bottom: 0em;
+    font: normal bold 1em Copperplate, Rockwell, Helvetica, sans-serif;
+}
+
+footer p {
+    padding: 0em;
+    margin: 0em;
+    text-align: right;
+    
+}
+
+#footroom {
+    padding: 0em;
+    margin: 0em;
+    bottom: 0em;
+    width: 100%;
+    height: 1em;
+}
