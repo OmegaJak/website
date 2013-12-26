@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>input</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="fractal.js"></script>
+	<script>
+	    $(document).ready(function() {
+		// find tokens in xml
+		// iterate through tokens drawing them
+		// find replacements in xml
+		// iterate through replacements drawing them
+		// find axiom in xml
+		// show axioms
+	    });
+	</script>
+    </head>
+    <body>
+	<h2>Tokens</h2>
+	<table id="tokens">
+	    <tr>
+		<th>string</th>
+		<th>replacement</th>
+		<th>remove</th>
+	    </tr>
+	</table>
+	<form onsubmit="addTokens">
+	    <input type="text" name="token" />
+	    <input type="text" name="action" />
+	    <input type="number" name="value" /> <!-- value relates to function -->
+	    <input type="submit" name="add" />
+	</form>
+	<h2>Replacements</h2>
+	<table id="replacements">
+	    <tr>
+		<th>string</th>
+		<th>replacement</th>
+		<th>remove</th>
+	    </tr>
+	</table>
+	<form onsubmit="addReplacement">
+	    <input type="text" name="string" />
+	    <input type="text" name="replacement" />
+	    <input type="submit" value="Add" />
+	</form>
+	<h2>Axioms</h2>
+	<table>
+	    <tr>
+		<td>start x</td>
+		<td>start y</td>
+		<td>start dir</td>
+		<td>start line</td>
+	    </tr>
+	    <tr id="axioms">
+		<td id="startX"></td>
+		<td id="startY"></td>
+		<td id="startDir"></td>
+		<td id="startLine"></td>
+	    </tr>
+	</table>
+	<form onsubmit="submitAxioms()">
+	    <input type="number" name="start x" />
+	    <input type="number" name="start y" />
+	    <input type="number" name="start dir" />
+	    <input type="text" name="start line" />
+	    <input type="submit" value="save" />
+	</form>
+    </body>
+</html>
