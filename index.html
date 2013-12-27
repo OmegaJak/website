@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+
+    <title>Programming Penguins</title>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+
+<link rel="stylesheet" href="css/layouts/side-menu.css">
+
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="index.html">Penguins</a>
+
+            <ul>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+               
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>Programming Penguins</h1>
+            <h2>Adventurers in code</h2>
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Who are we?</h2>
+            <p>
+               We're a group of people making a website to learn the basics of coding.
+            </p>
+
+            <h2 class="content-subhead">What's on this site</h2>
+            <p>
+                This website houses all of our projects, and all of the code behind them resides on our <a href="http://github.com/programminpenguins">Github account</a>. Enjoy this site, and please feel free to contribute to our code!
+           </p>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/ui.js"></script>
+
+
+</body>
+</html>
