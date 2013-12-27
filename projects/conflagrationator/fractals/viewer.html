@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Fractal</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="fractal.js"></script>
+		<script> // setup
+			var canvas;
+			var context;
+			
+			$(document).ready(function() {
+				canvas = document.getElementById("viewer");
+				context = canvas.getContext("2d");
+				
+				$(canvas).attr("width", String(window.innerWidth));
+				$(canvas).attr("height", String(window.innerHeight));
+			})
+		</script>
+    </head>
+    <body style="margin: 0em; padding: 0em;">
+		<canvas id="viewer" style="position: fixed; z-index: -1;"></canvas>
+		<button onclick="turtleGo()">DRAW</button>
+		<button onclick="ageLine($xml.find('line').text())">AGE LINE</button>
+		<button onclick="resetFractal()">RESET</button>
+		<a href="input.html">INPUT</a>
+    </body>
+</html>

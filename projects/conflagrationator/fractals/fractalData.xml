@@ -1,0 +1,22 @@
+<?xml version="1.0"?><fractal>
+    <tokens>
+	<variable action="moveAndDraw();" value="20">b</variable> <!--  value is distance  -->
+	<variable action="moveAndDraw();" value="20">u</variable> <!--  another one to have a different replacement  -->
+	<variable action="moveNoDraw();" value="20">d</variable> <!--  value is distance  -->
+	<variable action="moveAgeDraw();" value="20">p</variable> <!--  value is distance  -->
+	<variable action="moveAgeNoDraw();" value="20">q</variable> <!--  value is distance  -->
+	<constant action="turnRight();" value="90">+</constant> <!--  value is angle (in degrees)  -->
+	<constant action="turnLeft();" value="90">-</constant> <!--  value is angle (in degrees)  -->
+	<constant action="pushStateToStack();">[</constant>
+	<constant action="popStateFromStack();">]</constant>
+    </tokens>
+    <procedures>
+	<replacement string="b">b+u</replacement>
+	<replacement string="u">b-u</replacement>
+	<replacement string="d">d</replacement>
+	<replacement string="p">p</replacement>
+	<replacement string="q">q</replacement>
+    </procedures>
+    <axiom x="300" y="300" direction="0" line="b"/>
+    <line iteration="1">b</line>
+</fractal>

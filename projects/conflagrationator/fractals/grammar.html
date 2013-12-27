@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>L-system</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="fractal.js"></script>
+    </head>
+    <body>
+	<!--
+	<a href="viewer.html">Back to Viewer</a>
+	<h1>Lindenmayer System Grammar</h1>
+	<p>These are the set of gramatical rules that this fractal generator has by default. It works with a turtle by following the path constructed by the string of a given iteration. The defaults here are completely arbitrary, but it would be way tougher to try to have everyone edit their own. So I have tried to make them as comprehensible as possible.</p>
+	<h2>Variables</h2>
+	<p>b = move the turtle a step for one unit and draw a line</p>
+	<p>d = move the turtle a step for one unit and don't draw a line</p>
+	<p>p = move the turtle a step for 1/(x*c) unit (depending on age) and draw a line - x = iteration, c = user input</p>
+	<p>q = move the turtle a step for 1/(x*c) unit (depending on age) and don't draw a line</p>
+	<h2>Constants</h2>
+	<p>+ = turn right by set angle (change direction attribute of turtle by adding angle)</p>
+	<p>- = turn left by set angle (change direction attribute of turtle by subtracting angle)</p>
+	<p>[ = save state of turtle (to be used later) - the coordinates and direction - pushed to the top of a stack</p>
+	<p>] = recalls the state of the turtle - the last in the stack (useful for making branches)</p>
+	<h2>Axiom</h2>
+	<p>starting position (x,y) and starting direction</p>
+	<p>first procedure line</p>
+	<h2>Procedure Rules</h2>
+	<p>the rules for replacing variables</p>
+	<p> b = turns into another string of variables and constants</p>
+	<p> d = try to make it recursive (put other variables and the same one even to replace)</p>
+	<p> p = example:</p>
+	<p> q = bd-pq</p>
+	-->
+	
+	<h1>Lindenmayer System Grammar</h1>
+	<h2>Variables</h2>
+	<p>tokens with an action and a replacement</p>
+	<h2>Constants</h2>
+	<p>tokens with only an action</p>
+	<h2>Axiom</h2>
+	<p>the seed line</p>
+	<h2>Procedures</h2>
+	<p>the replacement rules for the variables</p>
+    </body>
+</html>
