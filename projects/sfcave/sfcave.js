@@ -80,6 +80,12 @@ function setupGame() {
     }
     // you already set up - foo!
     score = (caveRects.length - (you.ahead / 10)) * -1
+    
+    //make the button look a little nicer
+    document.getElementById("control").style.height="35px";
+    document.getElementById("control").style.backgroundColor="black";
+    document.getElementById("control").style.outlineColor="gray";
+    document.getElementById("control").style.color="white";
 }
 
 function resetGame() {
