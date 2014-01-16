@@ -43,12 +43,15 @@ var context;
 var gameInterval;
 var score; // distance you have traveled
 var caveRects; // list of rects making up cave
+var newCaveRects; // used if the user changes the window size
 var caveBlocks; // list of obstruction blocks
 var youFollowers; // list of tail rectangles
 // in game variables
 var fuel; // user input - mouse down? - bool
 var caveHeight; // height of the new blocks
 var caveBlockTimer; // counts down until next block
+var newCaveTop; // used while generating the cave (had to move here so all methods could access it)
+var newCaveHeight;// also used while generating the cave (had to move here so all methods could access it)
 
 /* -------- functions -------- */
 
@@ -63,6 +66,17 @@ function setupCanvas() {
 function resizeCanvas() {
     canvas.setAttribute("width", window.innerWidth);
     canvas.setAttribute("height", window.innerHeight - document.getElementById("information").scrollHeight);
+    
+    newCaveRects = new Array(Math.ceil(window.innerWidth / 10)); // same as how caveRects is created
+    for (r = 0; r < newCaveRects.length; r++) {// fill out newCaveRects[]
+    	if (r < caveRects.length) {
+    		newCaveRects[r] = caveRects[r];// transfer the old rects to the new array
+    	}else{
+    		generateCave(newCaveRects[r - 2].y, newCaveRects[r - 1].y);
+    		newCaveRects[r] = new rect(r * 10, newCaveTop, 10, newCaveHeight, "#7DE66E");// otherwise, fill it with rectangles
+    		caveRects[r] = newCaveRects[r];
+    	}
+    }
     
     draw();
 }
@@ -138,16 +152,14 @@ function resumeGame() {
     changeControlButtonToPause(); // in UI manipulation
 }
 
-function gameLoop() {
-    score = score + 1; // keep track
-    
+function generateCave(oldCaveTop, currentCaveTop) {
     // get user input
 	// with event listeners of mouseDown and mouseUp
     
     // cave rects
 	// change cave top
-    var oldCaveTop = caveRects[caveRects.length-2].y;
-    var currentCaveTop = caveRects[caveRects.length-1].y;
+//    var oldCaveTop = caveRects[caveRects.length-2].y;
+//    var currentCaveTop = caveRects[caveRects.length-1].y;
     var difference = currentCaveTop - oldCaveTop; // negative = cave moving down // positive = cave moving up
     var changeChance = Math.floor(Math.random() * 10); // 1/10 chance of changing direction
     var change = Math.floor(Math.random()* 10 + 1); // amount to change by
@@ -157,16 +169,14 @@ function gameLoop() {
     if (changeChance == 0) { // change direction - go up
 	change = change * -1;
     }
-    var newCaveTop = currentCaveTop + change; // apply change
+    newCaveTop = currentCaveTop + change; // apply change
 	// change cave height
-    var newCaveHeight = 100000 / (score + 500) + 42; // interesting formula, try it out sometime (y=100000/(x+500)+42) you'll see
+    newCaveHeight = 100000 / (score + 500) + 42; // interesting formula, try it out sometime (y=100000/(x+500)+42) you'll see
     caveHeight = newCaveHeight // TODO: see if this can be eliminated (caveHeight variable entirely)
 	// keep cave within bounds
-    if (newCaveTop < 0 || newCaveTop > canvas.height - caveHeight) { // if the cave is going out of bounds
+    if (newCaveTop < 0 || newCaveTop > canvas.getAttribute("height") - caveHeight) { // if the cave is going out of bounds
 	newCaveTop = currentCaveTop + change * -1; // force it to turn around
     }
-	// advance 1 segment
-    shiftCaveRects(newCaveTop, newCaveHeight);
     
     // cave blocks
     caveBlockTimer = caveBlockTimer - 1; // update loop count
@@ -188,7 +198,16 @@ function gameLoop() {
 	    caveBlocks.pop(0); // remove it
 	}
     }
+}
+
+function gameLoop() {
+    score = score + 1; // keep track
+    
+    // moved all the code that was here to generate and shift the cave to this function
+    generateCave(caveRects[caveRects.length - 2].y, caveRects[caveRects.length - 1].y); 
+
 	// advance 1 segment
+    shiftCaveRects(newCaveTop, newCaveHeight);
     shiftCaveBlocks();
     
     // you
@@ -227,7 +246,7 @@ function gameLoop() {
 /* -------- actions -------- */
 
 function draw() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.getAttribute("width"), canvas.getAttribute("width"));
     caveRects.draw();
     caveBlocks.draw();
     youFollowers.draw();
