@@ -106,6 +106,9 @@ function resetGame() {
     score = (caveRects.length - (you.ahead / 10)) * -1
     // reset cave
     caveHeight = canvas.getAttribute("height");
+    for (k = caveRects.length - 1; k >= Math.ceil(window.innerWidth / 10); k--) {
+    	caveRects.pop();
+    }
     for (r = 0; r < caveRects.length; r++) {
 	caveRects[r].y = 0;
 	caveRects[r].height = caveHeight;
